@@ -1,0 +1,32 @@
+page-home {
+    .company-logo{
+        display: flex;
+
+        img{
+            // width: 60px;
+            height: 65px;
+            object-fit: contain;
+        }
+    }
+
+    .share-text{
+        font-size: 11px;
+        text-transform: capitalize;
+    }
+
+    img.reward-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 50px;
+    }
+    .reward-text{
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 19px;
+        padding-right: -21px;
+        padding-left: 12px;
+        font-weight: 700;
+    }
+}
