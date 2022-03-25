@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "280113235799",
+    "project_id": "grassim",
+    "storage_bucket": "grassim.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280113235799:android:6e831a92038330aa4a2012",
+        "android_client_info": {
+          "package_name": "com.abacusdesk.grassim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280113235799-j2cki5rcocjctup6cqpt0ef921cmo8rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8lBK00_S2Mgj1zQQSpQB54t82UkS1SOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280113235799-j2cki5rcocjctup6cqpt0ef921cmo8rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

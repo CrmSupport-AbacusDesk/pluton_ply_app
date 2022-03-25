@@ -1,1 +1,1 @@
-# pluton_ply_app
+# Kridha_loyalty_app
