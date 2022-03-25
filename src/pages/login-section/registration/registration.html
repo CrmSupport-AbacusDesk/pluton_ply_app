@@ -212,17 +212,17 @@ r<ion-header>
             </ion-list-header>
             
             <ion-item [ngClass]="{'error':f.submitted && parent_counter_name?.invalid}">
-                <ion-label floating>{{'Counter Name'}}*</ion-label>
-                <ion-input type="text" name="parent_counter_name " pattern="[a-zA-Z ]+" ng-pattern-restrict #parent_counter_name="ngModel" [(ngModel)]="data.parent_counter_name" required></ion-input>
+                <ion-label floating>{{'Counter Name'}}</ion-label>
+                <ion-input type="text" name="parent_counter_name " pattern="[a-zA-Z ]+" ng-pattern-restrict #parent_counter_name="ngModel" [(ngModel)]="data.parent_counter_name" ></ion-input>
             </ion-item>
             
             <ion-item [ngClass]="{'error':f.submitted && parent_counter_contact_person  ?.invalid}">
-                <ion-label floating>{{'Contact Person'}}*</ion-label>
-                <ion-input type="text" name="parent_counter_contact_person " #parent_counter_contact_person="ngModel" [(ngModel)]="data.parent_counter_contact_person" required></ion-input>
+                <ion-label floating>{{'Contact Person'}}</ion-label>
+                <ion-input type="text" name="parent_counter_contact_person " #parent_counter_contact_person="ngModel" [(ngModel)]="data.parent_counter_contact_person" ></ion-input>
             </ion-item>
             <ion-item class="cs-input mb0" [ngClass]="{'error':f.submitted && parent_counter_mobile?.invalid}">
-                <ion-label floating>{{'Mobile No'}}*</ion-label>
-                <ion-input type="tel" name="parent_counter_mobile " #parent_counter_mobile="ngModel" [(ngModel)]="data.parent_counter_mobile" maxlength="10" minlength="10" required></ion-input>
+                <ion-label floating>{{'Mobile No'}}</ion-label>
+                <ion-input type="tel" name="parent_counter_mobile " #parent_counter_mobile="ngModel" [(ngModel)]="data.parent_counter_mobile" maxlength="10" minlength="10" ></ion-input>
             </ion-item>
             
             

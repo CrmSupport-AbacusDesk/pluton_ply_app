@@ -197,13 +197,13 @@ export class RegistrationPage {
             // if(!this.data.whatsapp_mobile_no){
             //     this.data.whatsapp_mobile_no="";
             // }
-            if(this.data.user_type == 1){
+            // if(this.data.user_type == 1){
                 
-                if(!this.data.profile){
-                    this.presentToast('Profile image required');
-                    return
-                }
-            }
+            //     if(!this.data.profile){
+            //         this.presentToast('Profile image required');
+            //         return
+            //     }
+            // }
             
             // if(!this.data.document_image){
             //     this.presentToast('Document image required');
