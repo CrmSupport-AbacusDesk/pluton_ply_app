@@ -41,9 +41,9 @@
     </div>
     
     <div class="pr-grid">
-        <div class="le-ft" (click)="viewProfiePic()">
-            <!-- <i class="material-icons">person</i> -->
-            <img src="{{uploadUrl + karigar_detail.profile}}">
+        <div class="le-ft">
+            <i class="material-icons" *ngIf="!karigar_detail.profile">person</i>
+            <img src="{{uploadUrl + karigar_detail.profile}}" *ngIf="karigar_detail.profile" (click)="viewProfiePic()">
         </div>
         <div class="ri-ght">
             <div class="align-ri">
