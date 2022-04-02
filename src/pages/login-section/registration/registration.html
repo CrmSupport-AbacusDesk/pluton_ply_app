@@ -35,7 +35,7 @@ r<ion-header>
                         <i class="material-icons" *ngIf="data.profile == ''">camera_alt</i>
                         <!-- <img [src]="data.profile" *ngIf="data.profile" required> -->
 
-                        <img src="{{data.profile_edit_id ? uploadurl+data.profile : data.profile}}">
+                        <img src="{{data.profile_edit_id ? uploadurl+data.profile : data.profile}}"  *ngIf="data.profile != ''">
                     </div>
                 </ion-item>
                 
