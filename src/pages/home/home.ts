@@ -37,6 +37,7 @@ import { ArrivalProductPage } from '../arrival-product/arrival-product';
 import { OfferProductPage } from '../offer-product/offer-product';
 import { ContractorListPage } from '../contractor/contractor-list/contractor-list';
 import { RedeemTypePage } from '../redeem-type/redeem-type';
+import { SuccessModalPage } from '../success-modal/success-modal';
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -102,15 +103,15 @@ export class HomePage {
             console.log(this.karigar_detail.status);
             
             if(this.karigar_detail.user_type!=3){
-
-            this.offer_detail=r['offer'];
-            this.last_point=r['last_point'];
-            this.notify_cn=r['notifications'];
-            this.today_point=r['today_point'];
-            this.total_balance_point = parseInt( this.karigar_detail.balance_point) + parseInt(this.karigar_detail.referal_point_balance );
-            this.sharepoint=r['points']['owner_ref_point'];
-
-        }
+                
+                this.offer_detail=r['offer'];
+                this.last_point=r['last_point'];
+                this.notify_cn=r['notifications'];
+                this.today_point=r['today_point'];
+                this.total_balance_point = parseInt( this.karigar_detail.balance_point) + parseInt(this.karigar_detail.referal_point_balance );
+                this.sharepoint=r['points']['owner_ref_point'];
+                
+            }
         });
     }
     
@@ -129,7 +130,7 @@ export class HomePage {
     } 
     
     
-  
+    
     
     
     qr_count:any=0;
@@ -137,38 +138,38 @@ export class HomePage {
     scanCoupon() {
         let alert = this.alertCtrl.create();
         alert.setTitle('Coupon');
-    
+        
         alert.addInput({
-          type: 'radio',
-          label: 'Coupon Scan',
-          value: 'scan',
-          checked: true
+            type: 'radio',
+            label: 'Coupon Scan',
+            value: 'scan',
+            checked: true
         });
         alert.addInput({
-          type: 'radio',
-          label: 'Enter Coupon Code',
-          value: 'code',
-         
+            type: 'radio',
+            label: 'Enter Coupon Code',
+            value: 'code',
+            
         });
-    
+        
         alert.addButton('Cancel');
         alert.addButton({
-          text: 'OK',
-          handler: data => {
-            this.testRadioOpen = false;
-            // this.testRadioResult = data;
-            this.value = data;
-            console.log("redio val =====>",this.value)
-            if(this.value == 'scan'){
-                this.scan();
-            }else if(this.value == 'code'){
-                this.navCtrl.push(CoupanCodePage)
+            text: 'OK',
+            handler: data => {
+                this.testRadioOpen = false;
+                // this.testRadioResult = data;
+                this.value = data;
+                console.log("redio val =====>",this.value)
+                if(this.value == 'scan'){
+                    this.scan();
+                }else if(this.value == 'code'){
+                    this.navCtrl.push(CoupanCodePage)
+                }
+                
             }
-          
-          }
         });
         alert.present();
-      }
+    }
     scan()
     {
         if( this.karigar_detail.manual_permission==1)
@@ -223,10 +224,23 @@ export class HomePage {
                                     })
                                     return;
                                 }
-                                this.translate.get("points has been added into your wallet")
-                                .subscribe(resp=>{
-                                    this.showSuccess( r['coupon_value'] +resp)
-                                })
+                                
+                                else if(r['status'] == 'VALID'){
+                                    let productData
+                                    productData =r['productdetail']
+                                    
+                                    if(productData.image != ''){
+                                        this.presentCancelPolicyModal(r['productdetail']);
+                                    }
+                                    
+                                    else{
+                                        this.translate.get("POINTS  have been added into your wallet")
+                                        .subscribe(resp=>{
+                                            this.showSuccess( r['coupon_value'] + '' + resp);
+                                        })
+                                    }
+                                }
+                               
                                 this.getData();
                             });
                         }
@@ -246,8 +260,16 @@ export class HomePage {
         }
     }
 
-
-   viewProfiePic()
+    presentCancelPolicyModal(data) {
+        console.log(data);
+        
+        let contactModal = this.modalCtrl.create(SuccessModalPage,{'data':data});
+        contactModal.present();
+        console.log('otp');
+      }
+    
+    
+    viewProfiePic()
     {
         this.modalCtrl.create(ViewProfilePage, {"Image": this.karigar_detail.profile,type:"base_64"}).present();
     }
@@ -371,7 +393,7 @@ export class HomePage {
     {
         console.log("share and earn");
         // let image = "https://play-lh.googleusercontent.com/FEDtMP_dyMgM8rJtp4MFdp60g0fLuBYNbu3pBNsNH52knTsG1yDuNs56CFYu_X3XqYk=s180-rw";
-
+        
         let image = "";
         let app_url = "https://play.google.com/store/apps/details?id=com.abacusdesk.pluton";
         
@@ -399,7 +421,20 @@ export class HomePage {
             title:'Success!',
             cssClass:'action-close',
             subTitle: text,
-            buttons: ['OK']
+            buttons: [ {
+                text: 'Scan More',
+                //   role: 'cancel',
+                handler: () => {
+                    this.scan();
+                }
+            },
+            {
+                text: 'Okay',
+                handler: () => {
+                    
+                }
+            }
+        ]
         });
         alert.present();
     }
@@ -434,7 +469,7 @@ export class HomePage {
         };
         
         const pushObject: PushObject = this.push.init(options);
-
+        
         pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
         pushObject.on('registration').subscribe((registration: any) => {
             console.log('Device registered', registration) 

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { DbserviceProvider } from '../../../providers/dbservice/dbservice';
 import { TabsPage } from '../../tabs/tabs';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HomePage } from '../../home/home';
+import { SuccessModalPage } from '../../success-modal/success-modal';
 
 
 
@@ -18,7 +19,7 @@ export class CoupanCodePage {
   data:any={};
   flag:any='';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:DbserviceProvider,public alertCtrl:AlertController,private barcodeScanner: BarcodeScanner) {
+  constructor(public navCtrl: NavController,public modalCtrl: ModalController, public navParams: NavParams,public service:DbserviceProvider,public alertCtrl:AlertController,private barcodeScanner: BarcodeScanner) {
   }
   
   ionViewDidLoad() {
@@ -54,7 +55,19 @@ export class CoupanCodePage {
         this.showAlert("Your Account Under Verification");
         return;
       }
-      this.showSuccess( r['coupon_value'] +" points has been added into your wallet")
+      
+      else if(r['status'] == 'VALID'){
+        let productData
+        productData =r['productdetail']
+        
+        if(productData.image != ''){
+          this.presentCancelPolicyModal(r['productdetail']);
+        }
+        
+        else{
+          this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
+        }
+      }
       // this.navCtrl.setRoot(TabsPage,{index:'0'});
       this.navCtrl.push(HomePage);
     });
@@ -88,9 +101,26 @@ export class CoupanCodePage {
             this.showAlert("Please Enter the coupon code ");
             return;
           }
-          this.showSuccess( r['coupon_value'] +" points has been added into your wallet")
+          
+          else if(r['status'] == 'VALID'){
+            let productData
+            productData =r['productdetail']
+            
+            if(productData.image != ''){
+
+              console.log(r['productdetail']);
+              
+
+              this.presentCancelPolicyModal(r['productdetail']);
+            }
+            
+            else{
+              this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
+            }
+          }
+          // this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
           // this.navCtrl.setRoot(TabsPage,{index:'0'});
-          this.navCtrl.push(TabsPage);
+          // this.navCtrl.push(TabsPage);
         });
       }
       else
@@ -115,8 +145,29 @@ export class CoupanCodePage {
       title:'Success!',
       cssClass:'action-close',
       subTitle: text,
-      buttons: ['OK']
+      buttons: [ {
+        text: 'Scan More',
+        //   role: 'cancel',
+        handler: () => {
+            this.scan();
+        }
+    },
+    {
+        text: 'Okay',
+        handler: () => {
+            
+        }
+    }
+]
     });
     alert.present();
+  }
+  
+  presentCancelPolicyModal(data) {
+    console.log(data);
+    
+    let contactModal = this.modalCtrl.create(SuccessModalPage,{'data':data});
+    contactModal.present();
+    console.log('otp');
   }
 }
