@@ -83,6 +83,8 @@ import { ContractorAddPageModule } from '../pages/contractor/contractor-add/cont
 import { ContractorDetailPageModule } from '../pages/contractor/contractor-detail/contractor-detail.module';
 import { RegistrationPageModule } from '../pages/login-section/registration/registration.module';
 import { RedeemTypePageModule } from '../pages/redeem-type/redeem-type.module';
+import { SuccessModalPage } from '../pages/success-modal/success-modal';
+import { SuccessModalPageModule } from '../pages/success-modal/success-modal.module';
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -156,6 +158,7 @@ export function createTranslateLoader(http: HttpClient) {
         ContractorAddPageModule,
         RegistrationPageModule,
         ContractorDetailPageModule,
+        SuccessModalPageModule,
         DigitalcatalogPageModule,
         TranslateModule.forRoot({
             loader: {
