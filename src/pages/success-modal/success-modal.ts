@@ -163,7 +163,7 @@ export class SuccessModalPage {
                   else{
                     this.translate.get("POINTS have been added into your wallet")
                     .subscribe(resp=>{
-                      this.showSuccess( r['coupon_value'] +resp);
+                      this.showSuccess( r['coupon_value'] + '' + resp);
                     })
                   }
                 }
