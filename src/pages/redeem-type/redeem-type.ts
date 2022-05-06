@@ -17,7 +17,7 @@ import { GiftListPage } from '../gift-gallery/gift-list/gift-list';
   templateUrl: 'redeem-type.html',
 })
 export class RedeemTypePage {
-  
+  limit:any;
   walletBal:any;
   data:any={};
   formData= new FormData();
@@ -31,6 +31,7 @@ export class RedeemTypePage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad RedeemTypePage');
+    this.cashPointLimit();
   }
   
   
@@ -56,6 +57,19 @@ export class RedeemTypePage {
     });
     alert.present();
   }
+
+cashPointLimit(){
+
+  this.service.post_rqst( {},'app_karigar/cash_limit')
+  .subscribe((r) =>
+  {
+      console.log(r);
+     
+      this.limit=r['limit'];
+      console.log(this.limit);
+      
+  });
+}
   
   submit(){
     
@@ -71,6 +85,11 @@ export class RedeemTypePage {
         return
       }
       
+      else if(this.data.redeem_amount <= this.limit){
+        this.showAlert( 'Please Enter Cash Amount Greater then ' + this.limit);
+        return
+      }
+
       else if(this.data.redeem_amount > this.walletBal){
         this.showAlert( 'insufficient points to redeem');
         return
