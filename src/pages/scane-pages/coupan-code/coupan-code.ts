@@ -65,7 +65,7 @@ export class CoupanCodePage {
         }
         
         else{
-          this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
+          this.showSuccess( r['coupon_value'] + ' ' +  " POINTS have been added into your wallet")
         }
       }
       // this.navCtrl.setRoot(TabsPage,{index:'0'});
@@ -115,7 +115,7 @@ export class CoupanCodePage {
             }
             
             else{
-              this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
+              this.showSuccess( r['coupon_value'] + ' ' + " POINTS have been added into your wallet")
             }
           }
           // this.showSuccess( r['coupon_value'] +" POINTS have been added into your wallet")
