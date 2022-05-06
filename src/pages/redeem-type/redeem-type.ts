@@ -86,7 +86,7 @@ cashPointLimit(){
       }
       
       else if(this.data.redeem_amount <= this.limit){
-        this.showAlert( 'Please Enter Cash Amount Greater then ' + this.limit);
+        this.showAlert( 'You cannot send redeem request below ' + this.limit +' '+ 'points');
         return
       }
 
