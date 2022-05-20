@@ -192,7 +192,33 @@
 	"Enter Shipping Address":"Enter Shipping Address",
 	"I have read":"I have read",
 	"cancelation policy":"cancelation policy",
-	"INR":"INR"
+	"INR":"INR",
+
+	"Redeem My Points":"Redeem My Points",
+	"Coupon":"Coupon",
+	"Coupon Scan":"Coupon Scan",
+    "Enter Coupon Code":"Enter Coupon Code",
+	"Please enter coupon code here, to get your points":"Please enter coupon code here, to get your points",
+	"Tap on scan icon to scan your coupon": "Tap on scan icon to scan your coupon",
+	"BALANCE POINTS":"BALANCE POINTS",
+	"SCANNED POINTS":"SCANNED POINTS",
+	"OTHER POINTS":"OTHER POINTS",
+	"Coupon Code":"Coupon Code",
+	"Description / Terms & Condition": "Description / Terms & Condition",
+	"Balance Points":"Balance Points",
+	"Total Balance":"Total Balance",
+	"Redeem Request":"Redeem Request",
+	"Request Type":"Request Type",
+	"Gift":"Gift",
+	"Cash":"Cash",
+	"NEXT":"NEXT",
+	"Redeem Point":"Redeem Point",
+	"Enter Point":"Enter Point",
+	"Shipping Address":"Shipping Address",
+	"Gift Status":"Gift Status",
+	"specification":"specification",
+	"Specification":"Specification"
+
 
 
 
