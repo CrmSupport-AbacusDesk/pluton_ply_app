@@ -323,11 +323,15 @@ export class HomePage {
         });
         this.loading.present();
     }
+    // goOnGiftListPage()
+    // {
+    //     this.navCtrl.push(RedeemTypePage,{'mode':'home',"balence_point":this.total_balance_point});
+    // }
+    
     goOnGiftListPage()
     {
-        this.navCtrl.push(RedeemTypePage,{'mode':'home',"balence_point":this.total_balance_point});
+        this.navCtrl.push(GiftListPage,{'mode':'home'});
     }
-    
     goOnFurniturePage()
     {
         this.navCtrl.push(FurnitureIdeasPage);

@@ -220,5 +220,34 @@
       "Bank details are missing Please update your bank details":"बैंक विवरण गायब हैं कृपया अपना बैंक विवरण अपडेट करें",
       "Architect Points Detail":"वास्तुकार अंक विवरण",
       "Account Holder Name":"खाताधारक का नाम",
-      "Cancellation Policy":"रद्द करने की नीति"
+      "Cancellation Policy":"रद्द करने की नीति",
+
+
+      
+      "Pdf catalogues":"पीडीएफ कैटलॉग",
+      "Pdf Catalogues":"पीडीएफ कैटलॉग",
+	"Redeem My Points":"मेरे अंक भुनाएं",
+	"Coupon":"कूपन",
+	"Coupon Scan":"कूपन स्कैन",
+    "Enter Coupon Code":"परचा कूट दर्ज करें",
+	"Please enter coupon code here, to get your points":"अपने अंक प्राप्त करने के लिए कृपया यहां कूपन कोड दर्ज करें",
+	"Tap on scan icon to scan your coupon": "अपना कूपन स्कैन करने के लिए स्कैन आइकन पर टैप करें",
+	"BALANCE POINTS":"शेष अंक",
+	"SCANNED POINTS":"स्कैन किए गए अंक",
+	"OTHER POINTS":"अन्य बिंदु",
+	"Coupon Code":"कूपन कोड",
+	"Description / Terms & Condition": "विवरण / नियम और शर्तें",
+	"Balance Points":"शेष अंक",
+	"Total Balance":"कुल शेष",
+	"Redeem Request":"रिडीम रिक्वेस्ट",
+	"Request Type":"अनुरोध का प्रकार",
+	"Gift":"उपहार",
+	"Cash":"नकद",
+	"NEXT":"अगला",
+	"Redeem Point":"रिडीम प्वाइंट",
+	"Enter Point":"प्वाइंट दर्ज करें ",
+	"Shipping Address":"शिपिंग पता",
+	"Gift Status":"उपहार की स्थिति",
+	"specification":"विनिर्देश",
+	"Specification":"विनिर्देश"
 }
