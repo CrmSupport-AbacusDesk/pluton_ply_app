@@ -56,4 +56,14 @@
     </plugin>
     <plugin name="cordova-plugin-device-orientation" spec="2.0.1" />
     <engine name="browser" spec="6.0.0" />
+    <config-file parent="/*" target="AndroidManifest.xml">
+        <queries>
+            <intent>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.GET_CONTENT" />
+            </intent>
+        </queries>
+    </config-file>
 </widget>

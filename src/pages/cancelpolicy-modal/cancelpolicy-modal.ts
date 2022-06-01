@@ -31,6 +31,8 @@ export class CancelpolicyModalPage {
     
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,public service:DbserviceProvider,public alertCtrl:AlertController,public loadingCtrl:LoadingController, public translate:TranslateService) {
         this.redeemType = this.navParams.get('redeem_type');
+        console.log(this.redeemType);
+        
         this.redeemPoint = this.navParams.get('redeem_point');
         
         
@@ -103,19 +105,23 @@ export class CancelpolicyModalPage {
             this.showAlert("OTP required");
             return
         }
+        if(!this.data.account_holder_name  || !this.data.bank_name || !this.data.account_no || !this.data.ifsc_code || !this.data.document_image || !this.data.document_no || !this.data.document_type){
+            this.showAlert("Bank Details and Document Details are missing");
+            return;
+        }
         else if(this.redeemType == 'gift'){
             
             if(!this.data.shipping_address){
                 this.showAlert("Shipping address required");
                 return
             }
+           
+
+            
         }
-        else if(this.redeemType == 'Cash'){
-            if(!this.data.account_holder_name  || !this.data.bank_name || !this.data.account_no || !this.data.ifsc_code){
-                this.showAlert("Bank details are missing");
-                return;
-            }
-        }
+        // else if(this.redeemType == 'gift'){
+           
+        // }
         if(!this.data.check){
             this.showAlert("Read cancelation policy");
             return

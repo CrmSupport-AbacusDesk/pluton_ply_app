@@ -92,12 +92,12 @@
                     </div>
 
 
-                    <ng-container *ngIf="!data.document_image || !data.document_no || !data.document_type" >
+                    <ng-container *ngIf="!data.document_image || !data.document_no || !data.document_type || !data.account_holder_name || !data.account_no || !data.bank_name || !data.ifsc_code " >
                         <div class="adhar alert-card">
                             <table>
                                 <tr>
                                     <td>
-                                        <p>{{ 'Documents are missing Please update your documents' | translate}}</p>
+                                        <p>{{ 'Bank Details and Documents Details are missing update your Details' | translate}}</p>
                                         <a round ion-button small (click)="goRegestrationsPage()">{{'Update detail' | translate}}</a>
                                     </td>
                                 </tr>
