@@ -139,7 +139,7 @@
         </div>
     </div>
  
-    <div class="heading line mt18">
+    <div class="heading line mt18"  *ngIf="karigar_detail.user_type==1" >
         <p>{{'Bank Information' | translate}}</p>
         <!-- <div class="little-edit">
             <a *ngIf="edit1==''"><i class="material-icons" (click)="onUploadChange();edit1 = '1' ">edit</i></a>
@@ -147,7 +147,7 @@
         </div> -->
     </div>
 
-    <div class="data">
+    <div class="data"  *ngIf="karigar_detail.user_type==1">
         <table>
             <tr>
                 <td>{{'Bank Name' | translate}}</td>
