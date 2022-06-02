@@ -168,7 +168,7 @@ export class CancelpolicyModalPage {
                 text:'OK',
                 cssClass: 'close-action-sheet',
                 handler:()=>{
-                    this.navCtrl.push(TransactionPage);
+                    this.navCtrl.push(ProfilePage);
                 }
             }]
         });
